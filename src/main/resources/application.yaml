@@ -27,3 +27,9 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
+# 集成redis
+redis:
+    host:
+    port:
+    password :
