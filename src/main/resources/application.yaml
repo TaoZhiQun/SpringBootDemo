@@ -5,7 +5,6 @@ spring:
      show-sql: true
      hibernate:
          ddl-auto: update
-
   mvc:
      view:
          prefix: /WEB-INF/pages/
@@ -17,19 +16,20 @@ spring:
           username: root
           password: youqu
 
-mybatis:
-  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
-  type-aliases-package: com.example.entity  # 注意：对应实体类的路径
-
-#pagehelper分页插件
+  redis:
+          host: 192.168.31.19
+          port: 6379
+          timeout: 30
+          pool:
+              max-active: 80
+              min-idle: 0
+              max-idle: 8
+              max-wait: -1
+mybatis: # 注意对齐方式
+  mapper-locations: classpath*:/mapping/*.xml
+  type-aliases-package: com.example.entity
 pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
-
-# 集成redis
-redis:
-    host:
-    port:
-    password :
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
