@@ -1,6 +1,8 @@
 package com.example;
 
+import com.example.mapper.UserMapper;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -15,6 +17,14 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @MapperScan("com.example.mapper")
 public class SpringBootDemoApplication extends SpringBootServletInitializer {
+
+    @Autowired
+    private UserMapper userMapper;
+    /**
+     *  配置到tomcat上需要使用
+     * @param builder
+     * @return
+     */
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(SpringBootDemoApplication.class);
@@ -22,5 +32,6 @@ public class SpringBootDemoApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
 		SpringApplication.run(SpringBootDemoApplication.class, args);
+
 	}
 }
