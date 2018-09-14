@@ -11,4 +11,7 @@ public interface UserMapper {
      * @return
      */
     List<User> findAllUser();
+
+
+    int saveUser(User user);
 }

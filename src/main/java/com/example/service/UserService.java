@@ -16,4 +16,6 @@ public interface UserService {
      * @return
      */
     List<User> findAllUser();
+
+    void testReadAndWrite();
 }

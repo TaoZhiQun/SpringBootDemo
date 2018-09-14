@@ -10,4 +10,11 @@
           user_ip userIp
         FROM t_user
     </select>
+
+    <insert id="saveUser" parameterType="com.example.entity.User">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_user(user_name, user_ip) values(#{userName}, #{userIp})
+    </insert>
 </mapper>

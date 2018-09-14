@@ -17,9 +17,6 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @MapperScan("com.example.mapper")
 public class SpringBootDemoApplication extends SpringBootServletInitializer {
-
-    @Autowired
-    private UserMapper userMapper;
     /**
      *  配置到tomcat上需要使用
      * @param builder
