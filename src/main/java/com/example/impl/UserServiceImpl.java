@@ -8,19 +8,28 @@ import com.example.util.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
 
+/**
+ * 登录用户实现类
+ * @author Tao
+ */
 @Service(value = "userService")
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     private LoginUserRepository loginUserRepository;
+
+    @Autowired
+    private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     @Autowired
     private UserMapper userMapper;
@@ -47,25 +56,20 @@ public class UserServiceImpl implements UserService {
     /**
      *  100个线程同时读写数据库，若数据库为空，则插入一条数据，理论上数据库应该存在一条数据
      */
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void testReadAndWrite() {
-        ExecutorService executorService = Executors.newScheduledThreadPool(100);
         User user = new User();
         user.setUserName("tao");
         user.setUserIp("127.0.0.1");
-        for(int i=0;i<1;i++){
-            executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    readAndWriteDB(user);
-                }
-            });
+        for(int i=0;i<100;i++){
+            threadPoolTaskExecutor.execute(() -> readAndWriteDB(user));
         }
     }
 
-    @Transactional
-    private  void readAndWriteDB(User user) {
-        User findUser = null;
+     private  void readAndWriteDB(User user) {
+        User findUser;
         try {
             findUser = loginUserRepository.findByUserNameAndUserIp(user.getUserName(),user.getUserIp());
             if(null == findUser){
@@ -73,6 +77,22 @@ public class UserServiceImpl implements UserService {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private class ExtThreadFactory implements ThreadFactory {
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread newthread = new Thread(r);
+            newthread.setName("wang" + new Date());
+            newthread.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+                @Override
+                public void uncaughtException(Thread t, Throwable e) {
+                    System.out.println("自定义处理异常" + t.getName() + e.getMessage());
+                    e.printStackTrace();
+                }
+            });
+            return newthread;
         }
     }
 }

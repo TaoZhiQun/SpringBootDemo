@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.entity.User;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public interface UserService {
      * @return
      */
     List<User> findAllUser();
+
 
     void testReadAndWrite();
 }
