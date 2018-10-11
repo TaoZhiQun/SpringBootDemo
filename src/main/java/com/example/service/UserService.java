@@ -1,10 +1,11 @@
 package com.example.service;
 
 import com.example.entity.User;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Service
 public interface UserService {
     /**
      * 保存用户信息
@@ -20,4 +21,6 @@ public interface UserService {
 
 
     void testReadAndWrite();
+
+
 }

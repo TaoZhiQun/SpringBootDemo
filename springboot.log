@@ -1,0 +1,209 @@
+2018-09-14 14:45:13,353:DEBUG pool-3-thread-51 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,353:DEBUG pool-3-thread-75 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,353:DEBUG pool-3-thread-90 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,353:DEBUG pool-3-thread-65 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,353:DEBUG pool-3-thread-21 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,353:DEBUG pool-3-thread-62 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,354:DEBUG pool-3-thread-56 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,354:DEBUG pool-3-thread-44 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,354:DEBUG pool-3-thread-37 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,354:DEBUG pool-3-thread-87 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 14:45:13,362:DEBUG pool-3-thread-44 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,362:DEBUG pool-3-thread-90 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,362:DEBUG pool-3-thread-56 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,362:DEBUG pool-3-thread-87 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,363:DEBUG pool-3-thread-75 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,363:DEBUG pool-3-thread-65 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,363:DEBUG pool-3-thread-62 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,363:DEBUG pool-3-thread-21 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,363:DEBUG pool-3-thread-37 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,363:DEBUG pool-3-thread-51 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 14:45:13,385:DEBUG pool-3-thread-56 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 14:45:13,387:DEBUG pool-3-thread-56 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 14:45:13,387:DEBUG pool-3-thread-56 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 14:45:13,415:TRACE pool-3-thread-56 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 14:45:13,415:TRACE pool-3-thread-56 (BaseJdbcLogger.java:165) - <==        Row: 100
+2018-09-14 14:45:13,417:DEBUG pool-3-thread-56 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-91 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-100 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-6 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-28 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-35 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-77 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-73 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-47 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-99 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,741:DEBUG pool-3-thread-19 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-6 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-100 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-91 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-73 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-28 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-99 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-77 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-19 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-47 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,749:DEBUG pool-3-thread-35 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-09-14 15:00:45,773:DEBUG pool-3-thread-91 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,775:DEBUG pool-3-thread-91 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,776:DEBUG pool-3-thread-91 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,796:DEBUG pool-3-thread-100 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,796:DEBUG pool-3-thread-73 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,796:DEBUG pool-3-thread-99 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-100 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-99 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-73 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-100 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-99 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-73 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-28 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-47 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-77 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-28 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-47 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-6 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,797:DEBUG pool-3-thread-77 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-28 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-47 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-6 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-77 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-6 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-19 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-35 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-19 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-35 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-19 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,798:DEBUG pool-3-thread-35 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-09-14 15:00:45,803:TRACE pool-3-thread-91 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,803:TRACE pool-3-thread-91 (BaseJdbcLogger.java:165) - <==        Row: 110
+2018-09-14 15:00:45,805:DEBUG pool-3-thread-91 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,817:TRACE pool-3-thread-99 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,817:TRACE pool-3-thread-99 (BaseJdbcLogger.java:165) - <==        Row: 111
+2018-09-14 15:00:45,817:DEBUG pool-3-thread-99 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,818:TRACE pool-3-thread-100 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,818:TRACE pool-3-thread-73 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,818:TRACE pool-3-thread-100 (BaseJdbcLogger.java:165) - <==        Row: 114
+2018-09-14 15:00:45,818:TRACE pool-3-thread-73 (BaseJdbcLogger.java:165) - <==        Row: 112
+2018-09-14 15:00:45,818:DEBUG pool-3-thread-100 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,818:DEBUG pool-3-thread-73 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,818:TRACE pool-3-thread-47 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,818:TRACE pool-3-thread-47 (BaseJdbcLogger.java:165) - <==        Row: 119
+2018-09-14 15:00:45,819:DEBUG pool-3-thread-47 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,819:TRACE pool-3-thread-77 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,819:TRACE pool-3-thread-6 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,819:TRACE pool-3-thread-77 (BaseJdbcLogger.java:165) - <==        Row: 115
+2018-09-14 15:00:45,819:TRACE pool-3-thread-6 (BaseJdbcLogger.java:165) - <==        Row: 113
+2018-09-14 15:00:45,819:TRACE pool-3-thread-19 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,819:DEBUG pool-3-thread-77 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,819:TRACE pool-3-thread-28 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,819:TRACE pool-3-thread-19 (BaseJdbcLogger.java:165) - <==        Row: 118
+2018-09-14 15:00:45,820:TRACE pool-3-thread-28 (BaseJdbcLogger.java:165) - <==        Row: 116
+2018-09-14 15:00:45,820:DEBUG pool-3-thread-6 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,820:DEBUG pool-3-thread-19 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,820:DEBUG pool-3-thread-28 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-09-14 15:00:45,821:TRACE pool-3-thread-35 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-09-14 15:00:45,821:TRACE pool-3-thread-35 (BaseJdbcLogger.java:165) - <==        Row: 117
+2018-09-14 15:00:45,821:DEBUG pool-3-thread-35 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:15:58,334:DEBUG http-nio-8089-exec-6 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT user_name userName, user_ip userIp FROM t_user 
+2018-10-09 13:15:58,351:DEBUG http-nio-8089-exec-6 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:15:58,377:TRACE http-nio-8089-exec-6 (BaseJdbcLogger.java:165) - <==    Columns: userName, userIp
+2018-10-09 13:15:58,378:TRACE http-nio-8089-exec-6 (BaseJdbcLogger.java:165) - <==        Row: yao, 192.168.31.19
+2018-10-09 13:15:58,379:TRACE http-nio-8089-exec-6 (BaseJdbcLogger.java:165) - <==        Row: tao, 127.0.0.1
+2018-10-09 13:15:58,380:TRACE http-nio-8089-exec-6 (BaseJdbcLogger.java:165) - <==        Row: hu, 192.168.31.13
+2018-10-09 13:15:58,380:DEBUG http-nio-8089-exec-6 (BaseJdbcLogger.java:159) - <==      Total: 3
+2018-10-09 13:30:04,161:DEBUG http-nio-8089-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:30:04,168:DEBUG http-nio-8089-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:30:04,187:DEBUG http-nio-8089-exec-1 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:30:04,189:DEBUG http-nio-8089-exec-1 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:30:04,190:DEBUG http-nio-8089-exec-1 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:30:04,216:TRACE http-nio-8089-exec-1 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:30:04,216:TRACE http-nio-8089-exec-1 (BaseJdbcLogger.java:165) - <==        Row: 115
+2018-10-09 13:30:04,218:DEBUG http-nio-8089-exec-1 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,691:DEBUG Thread-22 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-96 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-94 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-81 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-33 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-37 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-92 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-50 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-32 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,691:DEBUG Thread-49 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 13:58:52,705:DEBUG Thread-49 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-94 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-96 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-81 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-32 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-33 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-22 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-92 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-50 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,705:DEBUG Thread-37 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 13:58:52,726:DEBUG Thread-49 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,726:DEBUG Thread-33 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,726:DEBUG Thread-94 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,727:DEBUG Thread-50 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,727:DEBUG Thread-32 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,727:DEBUG Thread-81 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,727:DEBUG Thread-22 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,728:DEBUG Thread-92 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,728:DEBUG Thread-37 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,728:DEBUG Thread-96 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 13:58:52,728:DEBUG Thread-49 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-81 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-92 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-22 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-33 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-50 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-37 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,729:DEBUG Thread-92 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-22 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,728:DEBUG Thread-32 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-94 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,728:DEBUG Thread-96 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 13:58:52,729:DEBUG Thread-81 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-49 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-50 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-33 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-96 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-32 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-94 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,729:DEBUG Thread-37 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 13:58:52,756:TRACE Thread-49 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-92 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-33 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-96 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-22 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-50 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-81 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-37 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-94 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-92 (BaseJdbcLogger.java:165) - <==        Row: 120
+2018-10-09 13:58:52,756:TRACE Thread-96 (BaseJdbcLogger.java:165) - <==        Row: 125
+2018-10-09 13:58:52,756:TRACE Thread-81 (BaseJdbcLogger.java:165) - <==        Row: 123
+2018-10-09 13:58:52,756:TRACE Thread-50 (BaseJdbcLogger.java:165) - <==        Row: 118
+2018-10-09 13:58:52,756:TRACE Thread-37 (BaseJdbcLogger.java:165) - <==        Row: 121
+2018-10-09 13:58:52,756:TRACE Thread-49 (BaseJdbcLogger.java:165) - <==        Row: 116
+2018-10-09 13:58:52,756:TRACE Thread-94 (BaseJdbcLogger.java:165) - <==        Row: 117
+2018-10-09 13:58:52,756:TRACE Thread-32 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 13:58:52,756:TRACE Thread-22 (BaseJdbcLogger.java:165) - <==        Row: 119
+2018-10-09 13:58:52,756:TRACE Thread-33 (BaseJdbcLogger.java:165) - <==        Row: 124
+2018-10-09 13:58:52,757:TRACE Thread-32 (BaseJdbcLogger.java:165) - <==        Row: 122
+2018-10-09 13:58:52,758:DEBUG Thread-33 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,758:DEBUG Thread-50 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,759:DEBUG Thread-37 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,759:DEBUG Thread-94 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,759:DEBUG Thread-96 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,758:DEBUG Thread-32 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,758:DEBUG Thread-22 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,759:DEBUG Thread-49 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,758:DEBUG Thread-92 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 13:58:52,758:DEBUG Thread-81 (BaseJdbcLogger.java:159) - <==      Total: 1
+2018-10-09 14:05:41,814:DEBUG http-nio-8089-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: insert into t_user(user_name, user_ip) values(?, ?) 
+2018-10-09 14:05:41,821:DEBUG http-nio-8089-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: tao(String), 127.0.0.1(String)
+2018-10-09 14:05:41,841:DEBUG http-nio-8089-exec-2 (BaseJdbcLogger.java:159) - <==    Updates: 1
+2018-10-09 14:05:41,844:DEBUG http-nio-8089-exec-2 (BaseJdbcLogger.java:159) - ==>  Preparing: SELECT LAST_INSERT_ID() 
+2018-10-09 14:05:41,844:DEBUG http-nio-8089-exec-2 (BaseJdbcLogger.java:159) - ==> Parameters: 
+2018-10-09 14:05:41,874:TRACE http-nio-8089-exec-2 (BaseJdbcLogger.java:165) - <==    Columns: LAST_INSERT_ID()
+2018-10-09 14:05:41,874:TRACE http-nio-8089-exec-2 (BaseJdbcLogger.java:165) - <==        Row: 126
+2018-10-09 14:05:41,877:DEBUG http-nio-8089-exec-2 (BaseJdbcLogger.java:159) - <==      Total: 1
