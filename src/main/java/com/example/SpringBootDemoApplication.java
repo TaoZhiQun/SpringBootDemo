@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @ComponentScan(basePackages = {"com.example"})
 @SpringBootApplication
+@EnableScheduling
 @MapperScan("com.example.mapper")
 public class SpringBootDemoApplication extends SpringBootServletInitializer {
     /**
