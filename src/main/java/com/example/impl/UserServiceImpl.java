@@ -3,6 +3,7 @@ package com.example.impl;
 import com.example.entity.User;
 import com.example.mapper.UserMapper;
 import com.example.repository.LoginUserRepository;
+import com.example.service.KafkaMessageService;
 import com.example.service.RedisService;
 import com.example.service.RedisToMySqlService;
 import com.example.service.UserService;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,6 +44,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private HttpUtil httpUtil;
 
+    @Autowired
+    KafkaMessageService kafkaMessageService;
+
     @Override
     public void saveUser(String userName) {
         logger.info("测试数据------------>>" + userName);
@@ -49,8 +54,10 @@ public class UserServiceImpl implements UserService {
         String ipAddr = httpUtil.getIpAddr(request);
         user.setUserIp(ipAddr);
         user.setUserName(userName);
-        loginUserRepository.save(user);
-
+        User save = loginUserRepository.save(user);
+        System.out.println("--------保存后的id值---------"+save.getId());
+        kafkaMessageService.sendKafkaMessage("test_topic",save);
+        System.out.println("kafka发送消息完毕");
     }
 
     @Override

@@ -1,19 +1,16 @@
 package com.example.schedule;
 
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-//@Component
- @EnableAsync
-public class SayHello {
+// @Component
+public class SayHello2 {
     @Scheduled(cron = "0/1 * * * * ?")
-    @Async
     void sayHello1(){
         Thread current = Thread.currentThread();
         System.out.println("id:"+current.getId()+"name:"+current.getName()+"-------->>>每秒Hello1--------");
-      }
+    }
 
     @Scheduled(fixedDelay=1000)
     @Async

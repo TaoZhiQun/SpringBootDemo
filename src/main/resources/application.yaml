@@ -25,6 +25,24 @@ spring:
               min-idle: 0
               max-idle: 8
               max-wait: -1
+  kafka:
+          bootstrap-servers: 192.168.103.61:9092
+          producer:
+              key-serializer: org.apache.kafka.common.serialization.StringSerializer
+              value-serializer: org.apache.kafka.common.serialization.StringSerializer
+          consumer:
+              group-id: 0
+              enable-auto-commit: true
+              auto-commit-interval: 1000
+              key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+              value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+monitor:
+  cron: 0/5 * * * * ?
+  sharding-total-count: 2
+  sharding-item-parameters: 0=CIB,1=ICBC
+  job-description: "定时落库"
+  job-parameter: "hello elastic job"
+
 mybatis: # 注意对齐方式
   mapper-locations: classpath*:/mapping/*.xml
   type-aliases-package: com.example.entity
@@ -33,3 +51,4 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
