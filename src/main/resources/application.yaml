@@ -27,15 +27,7 @@ spring:
               max-wait: -1
   kafka:
           bootstrap-servers: 192.168.103.61:9092
-          producer:
-              key-serializer: org.apache.kafka.common.serialization.StringSerializer
-              value-serializer: org.apache.kafka.common.serialization.StringSerializer
-          consumer:
-              group-id: 0
-              enable-auto-commit: true
-              auto-commit-interval: 1000
-              key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-              value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
 monitor:
   cron: 0/5 * * * * ?
   sharding-total-count: 2

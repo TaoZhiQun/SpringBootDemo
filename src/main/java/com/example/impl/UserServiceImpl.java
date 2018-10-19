@@ -8,6 +8,7 @@ import com.example.service.RedisService;
 import com.example.service.RedisToMySqlService;
 import com.example.service.UserService;
 import com.example.util.HttpUtil;
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class UserServiceImpl implements UserService {
         user.setUserName(userName);
         User save = loginUserRepository.save(user);
         System.out.println("--------保存后的id值---------"+save.getId());
-        kafkaMessageService.sendKafkaMessage("test_topic",save);
+        kafkaMessageService.sendKafkaMessage("test_topic",new Gson().toJson(user));
         System.out.println("kafka发送消息完毕");
     }
 
