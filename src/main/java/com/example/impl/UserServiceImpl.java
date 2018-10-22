@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
         user.setUserName(userName);
         User save = loginUserRepository.save(user);
         System.out.println("--------保存后的id值---------"+save.getId());
-        kafkaMessageService.sendKafkaMessage("test_topic",new Gson().toJson(user));
+        kafkaMessageService.sendKafkaMessage("HuKangKang",new Gson().toJson(user));
         System.out.println("kafka发送消息完毕");
     }
 

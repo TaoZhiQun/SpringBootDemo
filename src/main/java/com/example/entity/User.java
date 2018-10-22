@@ -1,13 +1,14 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author 用户实体
  */
 @Entity
 @Table(name = "t_user")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
