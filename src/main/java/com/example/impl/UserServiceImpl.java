@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,6 +49,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     KafkaMessageService kafkaMessageService;
 
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+
     @Override
     public void saveUser(String userName) {
         logger.info("测试数据------------>>" + userName);
@@ -56,8 +61,8 @@ public class UserServiceImpl implements UserService {
         user.setUserIp(ipAddr);
         user.setUserName(userName);
         User save = loginUserRepository.save(user);
-        System.out.println("--------保存后的id值---------"+save.getId());
-        kafkaMessageService.sendKafkaMessage("HuKangKang",new Gson().toJson(user));
+        System.out.println("--------保存后的id值---------" + save.getId());
+        kafkaMessageService.sendKafkaMessage("HuKangKang", new Gson().toJson(user));
         System.out.println("kafka发送消息完毕");
     }
 
@@ -80,5 +85,38 @@ public class UserServiceImpl implements UserService {
         for (int i = 0; i < 100; i++) {
             threadPoolTaskExecutor.execute(() -> redisToMySqlService.readAndWriteDB(user));
         }
+    }
+
+    @Override
+    public void testUpdate() {
+        User user1 = new User();
+        User user2 = new User();
+        List<User> userList = new ArrayList<>();
+        for(int i=0;i<100;i++){
+            user1.setId(249L);
+            user1.setUserName("tao");
+            user1.setUserIp(String.valueOf(i));
+
+            user2.setId(249L);
+            user2.setUserName("Hu");
+            user2.setUserIp(String.valueOf(i));
+            userList.add(user1);
+            userList.add(user2);
+        }
+
+        for (int i = 0; i < 100; i++) {
+            threadPoolTaskExecutor.execute(() -> updateDB(userList));
+        }
+        System.out.println("更新完毕");
+    }
+
+    private void updateDB(List<User> userList) {
+        String sql = "update t_user set user_name =?,user_ip=? where id =?";
+        jdbcTemplate.batchUpdate(sql, userList, 100, (ps, u) -> {
+            ps.setString(1, u.getUserName());
+            ps.setString(2, u.getUserIp());
+            ps.setLong(3, u.getId());
+        });
+
     }
 }

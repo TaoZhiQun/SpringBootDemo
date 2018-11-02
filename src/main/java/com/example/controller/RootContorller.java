@@ -20,11 +20,21 @@ public class RootContorller {
     }
 
     /**
-     *  测试多线程同时读写数据库，http://localhost:8080/testThread 即可进行测试
+     *  测试多线程同时读写数据库，http://localhost:8089/testThread 即可进行测试
      */
     @RequestMapping("/testThread")
     @ResponseBody
     public void testThread(){
         userService.testReadAndWrite();
     }
+
+    /**
+     *  测试多线程同时更新数据库，http://localhost:8089/testUpdate 即可进行测试
+     */
+    @RequestMapping("/testUpdate")
+    @ResponseBody
+    public void testUpdate(){
+        userService.testUpdate();
+    }
+
 }

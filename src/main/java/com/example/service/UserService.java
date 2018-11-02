@@ -23,4 +23,5 @@ public interface UserService {
     void testReadAndWrite();
 
 
+    void testUpdate();
 }
