@@ -1,0 +1,14 @@
+.bottom {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dataTables_wrapper .dataTables_info {
+    margin-top: 0;
+}
+
+.bottom .dataTables_length {
+    padding-left: 0;
+}
