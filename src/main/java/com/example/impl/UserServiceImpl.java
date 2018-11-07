@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,25 +90,32 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void testUpdate() {
-        User user1 = new User();
-        User user2 = new User();
+        System.out.println("--------------------");
         List<User> userList = new ArrayList<>();
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
+            User user1 = new User();
+            User user2 = new User();
             user1.setId(249L);
             user1.setUserName("tao");
             user1.setUserIp(String.valueOf(i));
 
-            user2.setId(249L);
-            user2.setUserName("Hu");
+            user2.setId(250L);
+            user2.setUserName("tao");
             user2.setUserIp(String.valueOf(i));
             userList.add(user1);
             userList.add(user2);
         }
+        threadPoolTaskExecutor.execute(() -> updateDB(userList));
 
-        for (int i = 0; i < 100; i++) {
-            threadPoolTaskExecutor.execute(() -> updateDB(userList));
-        }
         System.out.println("更新完毕");
+    }
+
+    @Override
+    public void testSelect() {
+        User user = new User();
+        String[] names = new String[]{"tao", "taozhiqun"};
+        user.setUserNames(names);
+        List<User> byUserNames = userMapper.findByUserNames(user);
     }
 
     private void updateDB(List<User> userList) {

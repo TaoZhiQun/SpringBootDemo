@@ -20,6 +20,16 @@ public class User implements Serializable {
     @Column(name = "user_ip")
     private String userIp;
 
+    private String[] userNames;
+
+    public String[] getUserNames() {
+        return userNames;
+    }
+
+    public void setUserNames(String[] userNames) {
+        this.userNames = userNames;
+    }
+
     public Long getId() {
         return id;
     }

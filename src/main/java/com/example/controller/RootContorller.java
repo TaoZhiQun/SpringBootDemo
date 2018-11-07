@@ -1,6 +1,11 @@
 package com.example.controller;
 
+import com.example.entity.PlayerInfo;
+import com.example.service.PlayerInfoService;
 import com.example.service.UserService;
+import com.example.util.Page;
+import com.example.util.Pageable;
+import com.example.util.PageableImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,9 +19,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class RootContorller {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private PlayerInfoService playerInfoService;
     @RequestMapping("/index")
     public String index(){
-        return "index";
+        return "userinfo";
     }
 
     /**
@@ -35,6 +43,22 @@ public class RootContorller {
     @ResponseBody
     public void testUpdate(){
         userService.testUpdate();
+    }
+
+    /**
+     * 测试字段为String数组的mybatis查询
+     */
+    @RequestMapping("/testSelect")
+    @ResponseBody
+    public void testSelect(){
+        userService.testSelect();
+    }
+
+
+    @RequestMapping("/searchPlayerInfo")
+    @ResponseBody
+    public Page<PlayerInfo> searchPlayerInfo(String playerName,String playerRegion,Integer pageNo,Integer pageSize){
+        return playerInfoService.searchPlayerInfo(playerName,playerRegion,pageNo,pageSize);
     }
 
 }

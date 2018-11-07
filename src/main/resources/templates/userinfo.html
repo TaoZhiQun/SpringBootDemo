@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>玩家信息查看</title>
+</head>
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/jquery.dataTables.min.css}">
+<script type="text/javascript" th:src="@{/jquery.dataTables.min.js}"></script>
+<script type="text/javascript" th:src="@{/jquery.dataTables.bootstrap.js}"></script>
+<script type="text/javascript" th:src="@{/dataTables.tableTools.js}"></script>
+<script type="text/javascript" th:src="@{/dataTables.colVis.js}"></script>
+<script type="text/javascript" th:src="@{/userinfo.js}"></script>
+<body>
+<div>
+    <div class="row">
+        <form class="form-horizontal">
+            <div style="margin-left: 20px">
+                <h3>玩家信息查询</h3>
+            </div>
+            <div class="row header-information">
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">玩家昵称<span style="color: red;">*</span></label>
+                        <div class="col-sm-5">
+                            <input type="text" id="playerName" class="form-control"
+                                   name="playerName" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">所在区</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="playerRegion" class="form-control"
+                                   name="playerRegion" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <div class="form-group button-left-style">
+                            <div class="col-sm-5">
+                                <input type="button" class="btn btn-success" value="查询" onclick="findPlayerInfo()">
+                                <input type="button" class="btn btn-primary" value="重置">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <div class="form-group button-left-style">
+                            <input id="start"  type="button" class="btn btn-warning"
+                                   value="新增玩家"  >
+                            <input id="stop" type="button" class="btn btn-info"
+                                   value="导出报表" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="clearfix">
+                        <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div style="overflow: auto; width: 100%;">
+                        <table id="trade_dynamic-table" class="cell-border stripe"
+                               cellspacing="0" width="100%">
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="myFeeSetModal" tabindex="-1" role="dialog"
+         aria-labelledby="myfeeModal" aria-hidden="true"
+         data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content"
+                 style="width: 1200px; margin-left: -200px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myfeeModal">玩家详细信息</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- 添加表单内容-->
+                    <form class="form-horizontal" role="form" name="myForm" novalidate>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="clearfix">
+                                                <div class="pull-right tableTools-container"></div>
+                                            </div>
+                                            <div style="overflow: auto; width: 100%;">
+                                                <table id="tradeTable" class="cell-border stripe" cellspacing="0" width="100%"></table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </form>
+
+                    <!--End  添加表单内容-->
+                </div>
+                <div class="modal-footer">
+						<span class="btn btn-info btn-sm popover-info" data-rel="popover"
+                              data-placement="bottom" title="" data-dismiss="modal">&nbsp;确定&nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

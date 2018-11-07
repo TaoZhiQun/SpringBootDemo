@@ -17,4 +17,17 @@
         </selectKey>
         insert into t_user(user_name, user_ip) values(#{userName}, #{userIp})
     </insert>
+
+    <select id="findByUserNames" parameterType="map" resultType="com.example.entity.User">
+        SELECT
+          user_name userName,
+          user_ip userIp
+        FROM t_user
+        where user_name in
+        <foreach collection="request.userNames" item="item" index="index"
+                 open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
 </mapper>
