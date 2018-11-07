@@ -96,6 +96,8 @@ function tradeQuery() {
     }
 }
 
+
+
 $("#tradeTable").DataTable({
     columns: [{title: "序号"},
         {title: "成交日期"},
