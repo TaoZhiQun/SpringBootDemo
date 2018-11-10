@@ -17,7 +17,7 @@ public class PlayerServiceImpl implements PlayerInfoService {
     @Autowired
     private PlayerInfoMapper playerInfoMapper;
     @Override
-    public Page<PlayerInfo> searchPlayerInfo(String playerName, String playerRegion, Integer pageNo, Integer pageSize) {
+    public Page< PlayerInfo> searchPlayerInfo(String playerName, String playerRegion, Integer pageNo, Integer pageSize) {
         Pageable pageable = new PageableImpl();
         pageable.setPageNo(pageNo);
         pageable.setPageSize(pageSize);
