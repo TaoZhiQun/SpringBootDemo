@@ -9,7 +9,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 /**
  * @author Tao
  */
-@Configuration
+ @Configuration
 public class DatabaseConfiguration {
     @Bean
     @ConditionalOnMissingBean(PlatformTransactionManager.class)

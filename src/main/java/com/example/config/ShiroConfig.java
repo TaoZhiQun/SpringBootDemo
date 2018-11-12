@@ -18,7 +18,8 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String,String> accessMap = new HashMap<>();
-        accessMap.put("/index","authc");
+        accessMap.put("/*","authc");
+        shiroFilterFactoryBean.setLoginUrl("/home/toLogin");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(accessMap);
         return shiroFilterFactoryBean;
     }
