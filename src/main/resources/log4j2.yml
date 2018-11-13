@@ -18,7 +18,7 @@ Appenders:
           max: 1000
 Loggers:
     Root:
-      level: info
+      level: error
       AppenderRef:
         - ref: CONSOLE
     Logger: #单独设置某些包的输出级别

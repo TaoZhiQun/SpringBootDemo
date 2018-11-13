@@ -25,17 +25,17 @@ public class HomeController {
     @Autowired
     private UserService userService;
     @RequestMapping("/login")
-    public String login(String userName,String password,Model model){
+    public String login(String username,String password,Model model){
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName, password);
+        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
         try {
             subject.login(usernamePasswordToken);
         } catch (AuthenticationException e) {
             model.addAttribute("msg","登录失败");
-            return "redirect:toLogin";
+            return "login/fail";
         }
         model.addAttribute("msg","登录成功");
-        return "login/succeed";
+        return "userinfo/userinfo";
     }
 
     @RequestMapping("/toLogin")
