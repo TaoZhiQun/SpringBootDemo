@@ -54,6 +54,15 @@ public class RootContorller {
         userService.testSelect();
     }
 
+    /**
+     * 测试锁表
+     */
+    @RequestMapping("/testLockTable")
+    @ResponseBody
+    public String testLockTable(){
+        return userService.testLockTable();
+    }
+
 
     @RequestMapping("/searchPlayerInfo")
     @ResponseBody

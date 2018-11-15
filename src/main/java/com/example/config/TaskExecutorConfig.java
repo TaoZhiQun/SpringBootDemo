@@ -26,7 +26,7 @@ public class TaskExecutorConfig {
         // 设置线程活跃时间（秒）
         executor.setKeepAliveSeconds(60);
         // 设置默认线程名称
-        executor.setThreadNamePrefix("个人线程-");
+        executor.setThreadNamePrefix("Thread-");
         // 设置拒绝策略 对拒绝任务不抛弃，而是抛弃队列里面等待最久的一个线程，然后把拒绝任务加到队列
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy ());
         // 等待所有任务结束后再关闭线程池

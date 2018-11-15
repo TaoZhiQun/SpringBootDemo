@@ -26,4 +26,6 @@ public interface UserService {
     void testUpdate();
 
     void testSelect();
+
+    String testLockTable();
 }

@@ -1,8 +1,10 @@
 package com.example.impl;
 
+import com.example.entity.SendRecord;
 import com.example.entity.User;
 import com.example.mapper.UserMapper;
 import com.example.repository.LoginUserRepository;
+import com.example.repository.SendRecordRepository;
 import com.example.service.KafkaMessageService;
 import com.example.service.RedisService;
 import com.example.service.RedisToMySqlService;
@@ -38,6 +40,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private SendRecordRepository sendRecordRepository;
+
     @Autowired
     HttpServletRequest request;
 
@@ -116,6 +122,32 @@ public class UserServiceImpl implements UserService {
         String[] names = new String[]{"tao", "taozhiqun"};
         user.setUserNames(names);
         List<User> byUserNames = userMapper.findByUserNames(user);
+    }
+
+    @Override
+    public String testLockTable() {
+        try {
+            for (int i = 0; i < 10; i++) {
+                threadPoolTaskExecutor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        lockTableTest();
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "正在处理中";
+    }
+
+    /**
+     *  100% 出现锁表测试
+     */
+    private void lockTableTest() {
+        List<SendRecord> sendRecordList = sendRecordRepository.findByGiftIdAndToUserId("967647818", "964448353");
+        sendRecordRepository.deleteByGiftIdAndToUserId("967647818", "964448353");
+        sendRecordRepository.save(sendRecordList);
     }
 
     private void updateDB(List<User> userList) {
