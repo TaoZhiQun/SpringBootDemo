@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -24,8 +26,11 @@ import java.util.List;
 public class HomeController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private HttpServletRequest request;
     @RequestMapping("/login")
-    public String login(String username,String password,Model model){
+    public String login(String username,String password,Model model,HttpServletRequest request){
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
         try {
@@ -35,7 +40,7 @@ public class HomeController {
             return "login/fail";
         }
         model.addAttribute("msg","登录成功");
-        return "userinfo/userinfo";
+        return "login/succeed";
     }
 
     @RequestMapping("/toLogin")

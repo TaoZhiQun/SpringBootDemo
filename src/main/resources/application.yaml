@@ -1,15 +1,12 @@
 server:
   port: 8089
+  tomcat:
+    max-threads: 1200
 spring:
   jpa:
      show-sql: true
      hibernate:
          ddl-auto: update
-  mvc:
-     view:
-         prefix: /WEB-INF/pages/
-         suffix: .jsp
-
   datasource:
           driverClassName: com.mysql.jdbc.Driver
           url: jdbc:mysql://106.14.119.3:3306/tao?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC

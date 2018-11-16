@@ -6,6 +6,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtil {
+    private static final SimpleDateFormat timeFormat = new SimpleDateFormat(
+            "HH:mm:ss");
+
+    public static Date now() {
+        return new Date();
+    }
+
+    public static String currentTime() {
+        return timeFormat.format(now());
+    }
     private static ThreadLocal<DateFormat> threadLocal = new ThreadLocal<DateFormat>(){
         @Override
         protected DateFormat initialValue() {

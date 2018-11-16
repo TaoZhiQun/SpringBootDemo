@@ -8,4 +8,6 @@ import com.example.entity.User;
 
 public interface RedisToMySqlService {
     void readAndWriteDB(User user);
+
+    void lockTableTest();
 }

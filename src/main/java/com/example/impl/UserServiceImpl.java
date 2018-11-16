@@ -42,9 +42,6 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Autowired
-    private SendRecordRepository sendRecordRepository;
-
-    @Autowired
     HttpServletRequest request;
 
     @Autowired
@@ -124,33 +121,31 @@ public class UserServiceImpl implements UserService {
         List<User> byUserNames = userMapper.findByUserNames(user);
     }
 
+    /**
+     * 线程中调用的是B接口的中方法，而不是本实现类中的方法
+     */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public String testLockTable() {
         try {
-            for (int i = 0; i < 10; i++) {
+            redisToMySqlService.lockTableTest();
+            /*for (int i = 0; i < 1000; i++) {
                 threadPoolTaskExecutor.execute(new Runnable() {
                     @Override
                     public void run() {
-                        lockTableTest();
+                        redisToMySqlService.lockTableTest();
+
                     }
                 });
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "正在处理中";
     }
 
-    /**
-     *  100% 出现锁表测试
-     */
-    private void lockTableTest() {
-        List<SendRecord> sendRecordList = sendRecordRepository.findByGiftIdAndToUserId("967647818", "964448353");
-        sendRecordRepository.deleteByGiftIdAndToUserId("967647818", "964448353");
-        sendRecordRepository.save(sendRecordList);
-    }
 
-    private void updateDB(List<User> userList) {
+    private  void updateDB(List<User> userList) {
         String sql = "update t_user set user_name =?,user_ip=? where id =?";
         jdbcTemplate.batchUpdate(sql, userList, 100, (ps, u) -> {
             ps.setString(1, u.getUserName());
