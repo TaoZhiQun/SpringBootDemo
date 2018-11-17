@@ -24,7 +24,7 @@ public class RootContorller {
     private PlayerInfoService playerInfoService;
     @RequestMapping("/index")
     public String index(){
-        return "userinfo";
+        return "userinfo/userinfo";
     }
 
     /**
@@ -71,5 +71,11 @@ public class RootContorller {
     }
 
 
+    @RequestMapping("/exportPlayerInfo")
+    @ResponseBody
+    public void exportPlayerInfo(String playerName,String playerRegion){
+        System.out.println("playerName"+playerName);
+
+    }
 
 }

@@ -56,7 +56,7 @@ public class DistinctDemo {
         System.out.println("去重后取最后一个"+Arrays.asList(distinctList));
 
         // list去重 取第一个
-        ArrayList<Person> personArrayList = personList.stream().sorted(Comparator.comparing(Person::getId)).
+        ArrayList<Person> personArrayList = personList.stream().
                 collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>( Comparator.comparing(Person::getId))), ArrayList::new));
         System.out.println("去重后取第一个"+Arrays.asList(personArrayList));
     }
