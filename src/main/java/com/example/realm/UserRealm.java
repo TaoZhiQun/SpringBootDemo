@@ -2,14 +2,25 @@ package com.example.realm;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         System.out.println("授权开始");
-        return null;
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        Set<String> perms=new HashSet<String>();
+        Set<String> roles=new HashSet<String>();
+        perms.add("/testUpdate");
+        roles.add("user");
+        simpleAuthorizationInfo.setStringPermissions(perms);
+        simpleAuthorizationInfo.setRoles(roles);
+        return simpleAuthorizationInfo;
     }
 
     @Override

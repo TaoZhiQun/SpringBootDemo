@@ -1,29 +1,22 @@
 package com.example.test.other;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static java.util.Comparator.comparingLong;
-import static java.util.stream.Collectors.collectingAndThen;
-import static java.util.stream.Collectors.toCollection;
-
-class Person{
-    private long id;
+class Person {
+    private Long id;
     private String name;
 
-    public Person(long id, String name) {
+    public Person(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -47,20 +40,25 @@ class Person{
 public class DistinctDemo {
     public static void main(String[] args) {
         List<Person> personList = new ArrayList<>();
-        Person p1 = new Person(1,"tao");
-        Person p2  = new Person(1,"zhang");
+        Person p1 = new Person(1L, "tao");
+        Person p2 = new Person(1L, "zhi");
+        Person p3 = new Person(1L, "qun");
+        Person p4 = new Person(1L, "hello");
         personList.add(p1);
         personList.add(p2);
+        personList.add(p3);
+        personList.add(p4);
 
-        List<Person> distinctList =personList.stream()
-                  .filter(distinctByKey(x->x.getId()))
-                  .collect(Collectors.toList());
+        // 根据id去重
+        // list去重  取最后一个（list转map）
+        Map<Long, Person> personMap = personList.stream().collect(Collectors.toMap(Person::getId, x -> x, (key1, key2) -> key2));
+        List<Person> distinctList = personMap.values().stream().collect(Collectors.toList());
+        System.out.println("去重后取最后一个"+Arrays.asList(distinctList));
 
-        System.out.println(Arrays.asList(distinctList));
-    }
-    public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
-        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
-        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+        // list去重 取第一个
+        ArrayList<Person> personArrayList = personList.stream().sorted(Comparator.comparing(Person::getId)).
+                collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>( Comparator.comparing(Person::getId))), ArrayList::new));
+        System.out.println("去重后取第一个"+Arrays.asList(personArrayList));
     }
 
 }

@@ -13,7 +13,7 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
-    // @Bean(name = "shiroFilterFactoryBean")
+    @Bean(name = "shiroFilterFactoryBean")
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("webSecurityManager") DefaultWebSecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
