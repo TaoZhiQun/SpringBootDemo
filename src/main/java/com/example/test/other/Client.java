@@ -1,16 +1,11 @@
 package com.example.test.other;
 
+import java.math.BigDecimal;
+
 public class Client {
     public static void main(String[] args) {
-        MyThread t1 = new MyThread();
-        MyThread t2 = new MyThread();
-        MyThread t3 = new MyThread();
-        MyThread t4 = new MyThread();
-        MyThread t5 = new MyThread();
-        t1.start();
-        t2.start();
-        t3.start();
-        t4.start();
-        t5.start();
+        System.out.println(new BigDecimal("0.9"));
+        System.out.println(BigDecimal.valueOf(0.9));
+
     }
 }

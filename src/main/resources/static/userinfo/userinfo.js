@@ -59,18 +59,9 @@ function exportPlayerInfo() {
     var param = {};
     param.playerName = $("#playerName").val();
     param.playerRegion = $("#playerRegion").val();
-    $.ajax({
-        type: "GET",
-        datatype: "json",
-        contentType: "application/json",
-        url: "/exportPlayerInfo?" + $.param(param),
-        success: function (result) {
-            alert("成功信息" + JSON.stringify(data));
-        }, error: function (data) {
-            alert("失败信息" + JSON.stringify(data));
-        },
-        async: true
-    });
+    var url = "/exportPlayerInfo?" + $.param(param);
+    $("#iframeDownload").attr("src", url);
+
 }
 
 function tradeQuery() {

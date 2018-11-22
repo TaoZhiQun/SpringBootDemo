@@ -11,6 +11,7 @@
 	<name>SpringBootDemo</name>
 	<description>Demo project for Spring Boot</description>
 
+
     <!-- SpringBoot必须包-->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -56,18 +57,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-			<exclusions>
-				<exclusion><!-- 去除默认配置 -->
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
+
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j2</artifactId>
-			<version>1.5.6.RELEASE</version>
-		</dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-log4j2</artifactId>
+	</dependency>
 		<dependency>  <!-- 支持识别yml配置 -->
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-yaml</artifactId>
@@ -175,7 +170,7 @@
 		<dependency>
 			<groupId>org.jxls</groupId>
 			<artifactId>jxls</artifactId>
-			<version>2.4.6</version>
+            <version>2.4.6</version>
 		</dependency>
 
     </dependencies>

@@ -1,7 +1,7 @@
 package com.example.test.other;
 
 class Node{
-    Node next =null;
+    Node next;
     int data;
     Node(int data){
         this.data=data;

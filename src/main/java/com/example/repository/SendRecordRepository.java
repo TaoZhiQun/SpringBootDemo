@@ -23,4 +23,8 @@ public interface SendRecordRepository  extends CrudRepository<SendRecord, Long> 
     @Transactional(propagation = Propagation.REQUIRED)
     @Query(value = "delete from send_record where gift_id =:giftId and to_user_id =:toUserId", nativeQuery = true)
     void deleteByGiftIdAndToUserId(@Param("giftId")String giftId, @Param("toUserId")String toUserId);
+
+    List<String> findDistinctGiftId();
+
+    List<String> findDistinctToUserId();
 }

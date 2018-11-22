@@ -12,6 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
+
 /**
  * @author Tao 首页从此处进入，输入127.0.0.1:8080/index 即可跳转到index.jsp页面
  */
@@ -71,11 +75,42 @@ public class RootContorller {
     }
 
 
+
+
     @RequestMapping("/exportPlayerInfo")
     @ResponseBody
-    public void exportPlayerInfo(String playerName,String playerRegion){
-        System.out.println("playerName"+playerName);
+    public void exportPlayerInfo(String playerName,String playerRegion,HttpServletResponse response){
+        try {
+            //先加入测试
+            InputStream in = new FileInputStream(new File("c://1.xls"));
+            response.setContentType("application/vnd.ms-excel");
+            response.setHeader("Content_Length", String.valueOf(in.available()));
+            response.setHeader("Content-disposition", "attachment; filename=" + URLEncoder.encode("taozhiqun.xls", "utf-8"));
+            response.setHeader("error_code", "200");
 
+            byte[] bytes = new byte[1024];
+            int len;
+            while((len = in.read(bytes)) != -1) {
+                response.getOutputStream().write(bytes, 0, len);
+                response.flushBuffer();
+            }
+            response.flushBuffer();
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("playerName"+playerName);
+    }
+
+    @RequestMapping("/exportFile")
+    @ResponseBody
+     public File exportFile(){
+        File file = new File("C:\\1.txt");
+        return file;
     }
 
 }

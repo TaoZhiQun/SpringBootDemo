@@ -36,6 +36,9 @@ public class UserServiceImpl implements UserService {
     private LoginUserRepository loginUserRepository;
 
     @Autowired
+    private SendRecordRepository sendRecordRepository;
+
+    @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     @Autowired
@@ -115,10 +118,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void testSelect() {
-        User user = new User();
-        String[] names = new String[]{"tao", "taozhiqun"};
-        user.setUserNames(names);
-        List<User> byUserNames = userMapper.findByUserNames(user);
+        List<String> giftIds = sendRecordRepository.findDistinctGiftId();
+        List<String> toUserIds = sendRecordRepository.findDistinctToUserId();
+        // 第一种方式
     }
 
     /**
