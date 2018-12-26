@@ -33,4 +33,26 @@
         </if>
     </select>
 
+    <select id="testPlayerInfo" parameterType="map" resultType="com.example.entity.PlayerInfo">
+        SELECT
+        id id,
+        player_name playerName,
+        player_level playerLevel,
+        player_region playerRegion,
+        available_heros availableHeros
+        FROM t_player_info
+        where player_name in(
+        select player_name from t_player_info
+        where 1=1
+            <if test="playerName != null and playerName !='' ">
+                AND 	player_name like CONCAT('%', #{playerName,jdbcType=VARCHAR}, '%')
+            </if>
+            <if test="playerRegion != null and playerRegion !='' ">
+                AND 	player_region like CONCAT('%', #{playerRegion,jdbcType=VARCHAR}, '%')
+            </if>
+
+        )
+
+    </select>
+
 </mapper>

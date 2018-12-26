@@ -1,12 +1,17 @@
 package com.example.controller;
 
+import com.example.config.RedisClientTemplate;
+import com.example.config.RedisProperties;
 import com.example.entity.PlayerInfo;
+import com.example.impl.PlayerServiceImpl;
 import com.example.service.PlayerInfoService;
 import com.example.service.UserService;
 import com.example.util.Page;
 import com.example.util.Pageable;
 import com.example.util.PageableImpl;
+import com.example.util.RedisLockMager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Tao 首页从此处进入，输入127.0.0.1:8080/index 即可跳转到index.jsp页面
@@ -25,27 +33,37 @@ public class RootContorller {
     private UserService userService;
 
     @Autowired
+    private RedisLockMager redisLockMager;
+
+    @Autowired
     private PlayerInfoService playerInfoService;
+
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
+
+    @Autowired
+    private RedisProperties redisProperties;
+
     @RequestMapping("/index")
-    public String index(){
+    public String index() {
         return "userinfo/userinfo";
     }
 
     /**
-     *  测试多线程同时读写数据库，http://localhost:8089/testThread 即可进行测试
+     * 测试多线程同时读写数据库，http://localhost:8089/testThread 即可进行测试
      */
     @RequestMapping("/testThread")
     @ResponseBody
-    public void testThread(){
+    public void testThread() {
         userService.testReadAndWrite();
     }
 
     /**
-     *  测试多线程同时更新数据库，http://localhost:8089/testUpdate 即可进行测试
+     * 测试多线程同时更新数据库，http://localhost:8089/testUpdate 即可进行测试
      */
     @RequestMapping("/testUpdate")
     @ResponseBody
-    public void testUpdate(){
+    public void testUpdate() {
         userService.testUpdate();
     }
 
@@ -54,7 +72,7 @@ public class RootContorller {
      */
     @RequestMapping("/testSelect")
     @ResponseBody
-    public void testSelect(){
+    public void testSelect() {
         userService.testSelect();
     }
 
@@ -63,23 +81,21 @@ public class RootContorller {
      */
     @RequestMapping("/testLockTable")
     @ResponseBody
-    public String testLockTable(){
+    public String testLockTable() {
         return userService.testLockTable();
     }
 
 
     @RequestMapping("/searchPlayerInfo")
     @ResponseBody
-    public Page<PlayerInfo> searchPlayerInfo(String playerName,String playerRegion,Integer pageNo,Integer pageSize){
-        return playerInfoService.searchPlayerInfo(playerName,playerRegion,pageNo,pageSize);
+    public Page<PlayerInfo> searchPlayerInfo(String playerName, String playerRegion, Integer pageNo, Integer pageSize) {
+        return playerInfoService.searchPlayerInfo(playerName, playerRegion, pageNo, pageSize);
     }
-
-
 
 
     @RequestMapping("/exportPlayerInfo")
     @ResponseBody
-    public void exportPlayerInfo(String playerName,String playerRegion,HttpServletResponse response){
+    public void exportPlayerInfo(String playerName, String playerRegion, HttpServletResponse response) {
         try {
             //先加入测试
             InputStream in = new FileInputStream(new File("c://1.xls"));
@@ -90,7 +106,7 @@ public class RootContorller {
 
             byte[] bytes = new byte[1024];
             int len;
-            while((len = in.read(bytes)) != -1) {
+            while ((len = in.read(bytes)) != -1) {
                 response.getOutputStream().write(bytes, 0, len);
                 response.flushBuffer();
             }
@@ -103,12 +119,42 @@ public class RootContorller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("playerName"+playerName);
+        System.out.println("playerName" + playerName);
     }
+
+    @RequestMapping("/testRedisWithLock")
+    @ResponseBody
+    public void testRedisWithLock(String key) {
+        try {
+            if (redisLockMager.tryLock("CHEN", "bao", 500, TimeUnit.SECONDS)) {
+                System.out.println("------------任务处理完毕,当前key------------" + key + "系统日期" + LocalDate.now() + "时间为" + LocalTime.now());
+                kafkaTemplate.send(key, 0, key);
+            } else {
+                testRedisWithLock(key);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            redisLockMager.unLock("chen");
+        }
+    }
+
+    @RequestMapping("/testRedis")
+    @ResponseBody
+    public void testRedis(String key) {
+        String clusterNoede = redisProperties.getClusterNodes();
+        int commandTimeout = redisProperties.getCommandTimeout();
+        int expireSeconds = redisProperties.getExpireSeconds();
+        System.out.println("集群节点"+clusterNoede);
+        System.out.println("超时时间"+commandTimeout);
+        System.out.println("过期时间"+expireSeconds);
+
+    }
+
 
     @RequestMapping("/exportFile")
     @ResponseBody
-     public File exportFile(){
+    public File exportFile() {
         File file = new File("C:\\1.txt");
         return file;
     }

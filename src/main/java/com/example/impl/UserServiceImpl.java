@@ -1,7 +1,9 @@
 package com.example.impl;
 
+import com.example.entity.PlayerInfo;
 import com.example.entity.SendRecord;
 import com.example.entity.User;
+import com.example.mapper.PlayerInfoMapper;
 import com.example.mapper.UserMapper;
 import com.example.repository.LoginUserRepository;
 import com.example.repository.SendRecordRepository;
@@ -58,6 +60,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private PlayerInfoMapper playerInfoMapper;
 
 
     @Override
@@ -118,9 +123,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void testSelect() {
-        List<String> giftIds = sendRecordRepository.findDistinctGiftId();
-        List<String> toUserIds = sendRecordRepository.findDistinctToUserId();
-        // 第一种方式
+        List<PlayerInfo> playerInfos = playerInfoMapper.testPlayerInfo("孙爽", "Noxus");
+        playerInfos.stream().forEach(x->{
+            System.out.println(new Gson().toJson(x));
+        });
     }
 
     /**

@@ -1,11 +1,14 @@
 package com.example.test.other;
 
-import java.math.BigDecimal;
 
 public class Client {
     public static void main(String[] args) {
-        System.out.println(new BigDecimal("0.9"));
-        System.out.println(BigDecimal.valueOf(0.9));
-
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addNode(9);
+        myLinkedList.addNode(8);
+        myLinkedList.addNode(7);
+        myLinkedList.addNode(6);
+        myLinkedList.deleteNodeByIndex(2);
+        myLinkedList.printLink();
     }
 }

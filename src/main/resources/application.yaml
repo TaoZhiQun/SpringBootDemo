@@ -7,6 +7,9 @@ spring:
      show-sql: true
      hibernate:
          ddl-auto: update
+  redis:
+      cache.clusterNodes: 192.168.101.145:6379,192.168.101.145:6380,192.168.101.145:6381,192.168.101.146:6379,192.168.101.146:6380,192.168.101.146:6381,192.168.101.147:6379,192.168.101.147:6380,192.168.101.147:6381
+      cache.commandTimeout: 5000
   datasource:
           driverClassName: com.mysql.jdbc.Driver
           url: jdbc:mysql://106.14.119.3:3306/tao?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
@@ -18,18 +21,8 @@ spring:
   thymeleaf:
           mode: LEGACYHTML5
           cache: false
-
-  redis:
-          host: 192.168.31.19
-          port: 6379
-          timeout: 30
-          pool:
-              max-active: 80
-              min-idle: 0
-              max-idle: 8
-              max-wait: -1
   kafka:
-          bootstrap-servers: 106.14.119.3:9092
+          bootstrap-servers: 192.168.103.61:9092
 
 monitor:
   cron: 0/5 * * * * ?
