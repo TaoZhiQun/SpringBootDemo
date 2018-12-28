@@ -24,6 +24,11 @@ spring:
   kafka:
           bootstrap-servers: 192.168.103.61:9092
 
+eureka:
+      client:
+         register-with-eureka: false
+
+
 monitor:
   cron: 0/5 * * * * ?
   sharding-total-count: 2

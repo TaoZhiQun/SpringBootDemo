@@ -28,4 +28,6 @@ public interface UserService {
     void testSelect();
 
     String testLockTable();
+
+    void testInsert();
 }

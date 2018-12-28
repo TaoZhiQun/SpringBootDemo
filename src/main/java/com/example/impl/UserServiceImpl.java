@@ -13,6 +13,9 @@ import com.example.service.RedisToMySqlService;
 import com.example.service.UserService;
 import com.example.util.HttpUtil;
 import com.google.gson.Gson;
+import org.apache.tools.ant.Project;
+import org.apache.tools.ant.taskdefs.SQLExec;
+import org.apache.tools.ant.types.EnumeratedAttribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +67,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PlayerInfoMapper playerInfoMapper;
+
 
 
     @Override
@@ -152,6 +157,29 @@ public class UserServiceImpl implements UserService {
         return "正在处理中";
     }
 
+    @Override
+    public void testInsert() {
+        try {
+            String s = null;
+            s.toString();
+        } catch (Exception e) {
+           logger.error("错误信息:",e);
+
+        }
+    }
+
+
+    public static void main(String[] args) {
+        SQLExec sqlExec = new SQLExec();
+        sqlExec.setDriver("com.mysql.jdbc.Driver");
+        sqlExec.setUrl("jdbc:mysql://localhost:3306/clearing?rewriteBatchedStatements=true&amp;useServerPrepStmts=false&amp;cachePrepStmts=true&amp;useCompression=true");
+        sqlExec.setUserid("root");
+        sqlExec.setPassword("");
+        sqlExec.setSrc(new File("C:/Users/Tao/Desktop/t_trade_86663/t_trade.sql"));
+        sqlExec.setOnerror((SQLExec.OnError) EnumeratedAttribute.getInstance(SQLExec.OnError.class,"abort"));
+        sqlExec.setProject(new Project());
+        sqlExec.execute();
+    }
 
     private  void updateDB(List<User> userList) {
         String sql = "update t_user set user_name =?,user_ip=? where id =?";

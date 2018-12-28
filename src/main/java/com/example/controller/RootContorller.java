@@ -6,18 +6,23 @@ import com.example.entity.PlayerInfo;
 import com.example.impl.PlayerServiceImpl;
 import com.example.service.PlayerInfoService;
 import com.example.service.UserService;
+import com.example.test.shiro.MyHttpSessionListener;
 import com.example.util.Page;
 import com.example.util.Pageable;
 import com.example.util.PageableImpl;
 import com.example.util.RedisLockMager;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.net.URLEncoder;
 import java.time.LocalDate;
@@ -67,6 +72,20 @@ public class RootContorller {
         userService.testUpdate();
     }
 
+    @PostMapping("/Login")
+    public void getUserByUserNameAndPassword(String username, String password, HttpSession session) {
+        session.setAttribute(username,password);
+    }
+
+    /**
+     * 测试字段为String数组的mybatis查询
+     */
+    @RequestMapping("/online")
+    @ResponseBody
+    public void online() {
+        System.out.println( "当前在线人数：" + MyHttpSessionListener.online + "人");
+    }
+
     /**
      * 测试字段为String数组的mybatis查询
      */
@@ -84,6 +103,18 @@ public class RootContorller {
     public String testLockTable() {
         return userService.testLockTable();
     }
+
+    @RequestMapping("/Logout")
+    @ResponseBody
+    public String Logout(HttpServletRequest request,String username){
+        HttpSession session = request.getSession(false);
+        if(null != session){
+            session.removeAttribute(username);
+            session.invalidate();
+        }
+        return "退出登录成功";
+    }
+
 
 
     @RequestMapping("/searchPlayerInfo")

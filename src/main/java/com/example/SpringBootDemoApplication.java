@@ -1,10 +1,15 @@
 package com.example;
 
+import com.example.test.shiro.MyServlet;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -16,6 +21,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @MapperScan("com.example.mapper")
+@ServletComponentScan
 public class SpringBootDemoApplication extends SpringBootServletInitializer {
     /**
      *  配置到tomcat上需要使用
@@ -26,6 +32,7 @@ public class SpringBootDemoApplication extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(SpringBootDemoApplication.class);
     }
+
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootDemoApplication.class, args);
