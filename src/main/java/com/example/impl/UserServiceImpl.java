@@ -1,5 +1,6 @@
 package com.example.impl;
 
+import com.dangdang.ddframe.rdb.sharding.id.generator.IdGenerator;
 import com.example.entity.PlayerInfo;
 import com.example.entity.SendRecord;
 import com.example.entity.User;
@@ -7,6 +8,7 @@ import com.example.mapper.PlayerInfoMapper;
 import com.example.mapper.UserMapper;
 import com.example.repository.LoginUserRepository;
 import com.example.repository.SendRecordRepository;
+import com.example.repository.UserRepository;
 import com.example.service.KafkaMessageService;
 import com.example.service.RedisService;
 import com.example.service.RedisToMySqlService;
@@ -19,6 +21,7 @@ import org.apache.tools.ant.types.EnumeratedAttribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -40,9 +43,6 @@ public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     private LoginUserRepository loginUserRepository;
-
-    @Autowired
-    private SendRecordRepository sendRecordRepository;
 
     @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
@@ -67,6 +67,13 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PlayerInfoMapper playerInfoMapper;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private SendRecordRepository sendRecordRepository;
+
 
 
 
@@ -158,14 +165,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void testInsert() {
-        try {
-            String s = null;
-            s.toString();
-        } catch (Exception e) {
-           logger.error("错误信息:",e);
+        User user1 = new User();
+        user1.setId(1L);
+        user1.setUserName("tao");
+        user1.setUserIp("192.168.31.19");
+        userRepository.save(user1);
 
-        }
+        int i = 1/0;
+
+        SendRecord sendRecord = new SendRecord();
+        sendRecord.setCountGift("1");
+        sendRecord.setFromUserId("2");
+        sendRecord.setGiftId("3");
+        sendRecord.setToUserId("4");
+        sendRecordRepository.save(sendRecord);
+
+
     }
 
 

@@ -4,30 +4,20 @@ server:
     max-threads: 1200
 spring:
   jpa:
+     database: mysql
      show-sql: true
      hibernate:
-         ddl-auto: update
+         ddl-auto: none
+
   redis:
       cache.clusterNodes: 192.168.101.145:6379,192.168.101.145:6380,192.168.101.145:6381,192.168.101.146:6379,192.168.101.146:6380,192.168.101.146:6381,192.168.101.147:6379,192.168.101.147:6380,192.168.101.147:6381
       cache.commandTimeout: 5000
-  datasource:
-          driverClassName: com.mysql.jdbc.Driver
-          url: jdbc:mysql://106.14.119.3:3306/tao?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-          username: root
-          password: youqu
-          tomcat:
-            max-wait: 10000
 
   thymeleaf:
           mode: LEGACYHTML5
           cache: false
   kafka:
           bootstrap-servers: 192.168.103.61:9092
-
-eureka:
-      client:
-         register-with-eureka: false
-
 
 monitor:
   cron: 0/5 * * * * ?

@@ -1,21 +1,16 @@
 package com.example.controller;
 
-import com.example.config.RedisClientTemplate;
 import com.example.config.RedisProperties;
 import com.example.entity.PlayerInfo;
-import com.example.impl.PlayerServiceImpl;
+import com.example.entity.User;
 import com.example.service.PlayerInfoService;
 import com.example.service.UserService;
 import com.example.test.shiro.MyHttpSessionListener;
 import com.example.util.Page;
-import com.example.util.Pageable;
-import com.example.util.PageableImpl;
 import com.example.util.RedisLockMager;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -168,6 +163,12 @@ public class RootContorller {
         } finally {
             redisLockMager.unLock("chen");
         }
+    }
+
+    @RequestMapping("/save")
+    @ResponseBody
+    public void save(){
+        userService.testInsert();
     }
 
     @RequestMapping("/testRedis")
