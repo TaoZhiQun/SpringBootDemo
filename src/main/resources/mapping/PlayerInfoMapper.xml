@@ -24,7 +24,7 @@
     <select id="searchTotalPlayer" resultType="java.lang.Long">
       SELECT count(*)
         FROM t_player_info
-        where 1=1testPlayerInfo
+        where 1=1
         <if test="playerName != null and playerName !='' ">
             AND 	player_name like CONCAT('%', #{playerName,jdbcType=VARCHAR}, '%')
         </if>

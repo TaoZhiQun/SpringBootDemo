@@ -76,7 +76,7 @@ function tradeQuery() {
             type: "GET",
             datatype: "json",
             contentType: "application/json",
-            url: "/searchPlayerInfo?" + $.param(param),
+            url: "/root/searchPlayerInfo?" + $.param(param),
             success: function (result) {
                 var con = result.content;
                 var tempArray = new Array();

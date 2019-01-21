@@ -28,6 +28,7 @@ import java.util.concurrent.TimeUnit;
  * @author Tao 首页从此处进入，输入127.0.0.1:8080/index 即可跳转到index.jsp页面
  */
 @Controller
+@RequestMapping("/root")
 public class RootContorller {
     @Autowired
     private UserService userService;
@@ -46,7 +47,7 @@ public class RootContorller {
 
     @RequestMapping("/index")
     public String index() {
-        return "userinfo/userinfo";
+        return "/userinfo/userinfo";
     }
 
     /**
@@ -115,6 +116,7 @@ public class RootContorller {
     @RequestMapping("/searchPlayerInfo")
     @ResponseBody
     public Page<PlayerInfo> searchPlayerInfo(String playerName, String playerRegion, Integer pageNo, Integer pageSize) {
+        System.out.println("进入查询链接");
         return playerInfoService.searchPlayerInfo(playerName, playerRegion, pageNo, pageSize);
     }
 
