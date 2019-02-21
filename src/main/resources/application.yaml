@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
   tomcat:
     max-threads: 1200
 spring:
@@ -34,4 +34,14 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+management:
+  endpoints:
+     web:
+        exposure:
+           include: jpa
+  health:
+      redis:
+        enabled: false
+
 

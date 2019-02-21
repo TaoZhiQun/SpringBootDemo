@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import com.example.config.RedisProperties;
+import com.example.entity.Log;
+import com.example.entity.MyEvent;
 import com.example.entity.PlayerInfo;
 import com.example.entity.User;
 import com.example.service.PlayerInfoService;
@@ -8,10 +10,15 @@ import com.example.service.UserService;
 import com.example.test.shiro.MyHttpSessionListener;
 import com.example.util.Page;
 import com.example.util.RedisLockMager;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.event.EventListener;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -44,6 +51,9 @@ public class RootContorller {
 
     @Autowired
     private RedisProperties redisProperties;
+
+    @Autowired
+    ApplicationContext applicationContext;
 
     @RequestMapping("/index")
     public String index() {
@@ -186,11 +196,26 @@ public class RootContorller {
     }
 
 
-    @RequestMapping("/exportFile")
+    @PostMapping(value = "/insertlog")
     @ResponseBody
-    public File exportFile() {
-        File file = new File("C:\\1.txt");
-        return file;
+    public void insertLog(@RequestBody Log log) {
+        System.out.println(new Gson().toJson(log));
     }
+
+
+    @RequestMapping("/testevent")
+    @ResponseBody
+    public void testEvent() {
+        MyEvent myEvent = new MyEvent();
+        myEvent.setData("登录成功，发布成功事件");
+        applicationContext.publishEvent(myEvent);
+    }
+
+    @EventListener
+    @Async
+    public void loginOutReceive(MyEvent event) {
+        System.out.println(Thread.currentThread().getName() + "接收到登出成功事件:" + event.getData());
+    }
+
 
 }

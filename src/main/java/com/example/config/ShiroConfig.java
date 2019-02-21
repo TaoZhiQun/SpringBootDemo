@@ -8,17 +8,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Configuration
 public class ShiroConfig {
 
-    //@Bean(name = "shiroFilterFactoryBean")
+    @Bean(name = "shiroFilterFactoryBean")
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("webSecurityManager") DefaultWebSecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        Map<String,String> accessMap = new HashMap<>();
-        accessMap.put("/*","authc");
+        Map<String,String> accessMap = new LinkedHashMap<>();
+        accessMap.put("/save","anon");
+        accessMap.put("/*","anon");
         shiroFilterFactoryBean.setLoginUrl("/home/toLogin");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(accessMap);
         return shiroFilterFactoryBean;
