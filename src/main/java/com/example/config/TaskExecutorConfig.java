@@ -11,8 +11,8 @@ import java.util.concurrent.ThreadPoolExecutor;
  * 异步线程池的配置
  * @author Tao
  */
-//@Configuration
-//@EnableAsync
+@Configuration
+@EnableAsync
 public class TaskExecutorConfig {
     @Bean
     public ThreadPoolTaskExecutor threadPoolTaskExecutor(){

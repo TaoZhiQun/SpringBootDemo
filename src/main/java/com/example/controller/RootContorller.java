@@ -205,6 +205,7 @@ public class RootContorller {
 
     @RequestMapping("/testevent")
     @ResponseBody
+
     public void testEvent() {
         MyEvent myEvent = new MyEvent();
         myEvent.setData("登录成功，发布成功事件");
