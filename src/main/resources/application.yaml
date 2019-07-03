@@ -17,7 +17,7 @@ spring:
           mode: LEGACYHTML5
           cache: false
   kafka:
-          bootstrap-servers: 192.168.103.61:9092
+          bootstrap-servers: 192.168.103.60:9092
 
 monitor:
   cron: 0/5 * * * * ?

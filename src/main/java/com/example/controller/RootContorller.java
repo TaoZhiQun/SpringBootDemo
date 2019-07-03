@@ -17,10 +17,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -54,6 +51,12 @@ public class RootContorller {
 
     @Autowired
     ApplicationContext applicationContext;
+
+
+    @PostMapping("/chgpwd/")
+    public void testChangePassord( String password){
+        System.out.println(password);
+    }
 
     @RequestMapping("/index")
     public String index() {
