@@ -1,9 +1,6 @@
 package com.example.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -13,16 +10,22 @@ import java.io.Serializable;
 @Table(name = "t_user")
 public class User implements Serializable {
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "id")
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-   // @Column(name = "user_name")
+    @Column(name = "user_name")
     private String userName;
 
-  //  @Column(name = "user_ip")
+    @Column(name = "user_ip")
     private String userIp;
 
+    public User(){}
+
+    public User(String userName, String userIp) {
+        this.userName = userName;
+        this.userIp = userIp;
+    }
 
     public Long getId() {
         return id;

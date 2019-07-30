@@ -1,14 +1,14 @@
 package com.example.test.decorator;
 
-public abstract class Decorator implements Person{
-    private Person person;
+public class Decorator implements Component {
+    private Component component;
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public Decorator(Component component) {
+        this.component = component;
     }
 
     @Override
-    public void eat() {
-        person.eat();
+    public void function() {
+        component.function();
     }
 }

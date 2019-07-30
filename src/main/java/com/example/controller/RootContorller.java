@@ -66,9 +66,9 @@ public class RootContorller {
     /**
      * 测试多线程同时读写数据库，http://localhost:8089/testThread 即可进行测试
      */
-    @RequestMapping("/testThread")
+    @RequestMapping("/testtransaction")
     @ResponseBody
-    public void testThread() {
+    public void testTransaction() {
         userService.testReadAndWrite();
     }
 
@@ -186,6 +186,11 @@ public class RootContorller {
         userService.testInsert();
     }
 
+    @RequestMapping("/saveuser")
+    public void saveUser(String userName){
+        userService.saveUser(userName);
+    }
+
     @RequestMapping("/testRedis")
     @ResponseBody
     public void testRedis(String key) {
@@ -195,7 +200,6 @@ public class RootContorller {
         System.out.println("集群节点"+clusterNoede);
         System.out.println("超时时间"+commandTimeout);
         System.out.println("过期时间"+expireSeconds);
-
     }
 
 

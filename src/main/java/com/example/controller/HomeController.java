@@ -43,6 +43,8 @@ public class HomeController {
         return "login/succeed";
     }
 
+
+
     @RequestMapping("/toLogin")
     public ModelAndView toLogin(){
         ModelAndView modelAndView = new ModelAndView("login");

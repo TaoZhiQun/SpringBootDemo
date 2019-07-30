@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.SQLExec;
 import org.apache.tools.ant.types.EnumeratedAttribute;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,19 +76,14 @@ public class UserServiceImpl implements UserService {
     private SendRecordRepository sendRecordRepository;
 
 
-
-
     @Override
     public void saveUser(String userName) {
         logger.info("测试数据------------>>" + userName);
         User user = new User();
-        String ipAddr = httpUtil.getIpAddr(request);
-        user.setUserIp(ipAddr);
         user.setUserName(userName);
-        User save = loginUserRepository.save(user);
-        System.out.println("--------保存后的id值---------" + save.getId());
-        kafkaMessageService.sendKafkaMessage("HuKangKang", new Gson().toJson(user));
-        System.out.println("kafka发送消息完毕");
+        user.setUserIp("192.168.33.111");
+        final User save = userRepository.save(user);
+        System.out.println(user.getId());
     }
 
     @Override
@@ -103,12 +99,14 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void testReadAndWrite() {
-        User user = new User();
-        user.setUserName("tao");
-        user.setUserIp("127.0.0.1");
-        for (int i = 0; i < 100; i++) {
-            threadPoolTaskExecutor.execute(() -> redisToMySqlService.readAndWriteDB(user));
-        }
+
+       // redisToMySqlService.readAndWriteDB(user);
+//        User user = new User();
+//        user.setUserName("tao");
+//        user.setUserIp("127.0.0.1");
+//        for (int i = 0; i < 100; i++) {
+//            threadPoolTaskExecutor.execute(() -> redisToMySqlService.readAndWriteDB(user));
+//        }
     }
 
     @Override

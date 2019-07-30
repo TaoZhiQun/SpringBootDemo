@@ -3,11 +3,26 @@ server:
   tomcat:
     max-threads: 1200
 spring:
-  jpa:
-     database: mysql
-     show-sql: true
-     hibernate:
-         ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost:13306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # schema: classpath:db/schema.sql
+    # data: classpath:db/data.sql
+
 
   redis:
       cache.clusterNodes: 192.168.101.145:6379,192.168.101.145:6380,192.168.101.145:6381,192.168.101.146:6379,192.168.101.146:6380,192.168.101.146:6381,192.168.101.147:6379,192.168.101.147:6380,192.168.101.147:6381
